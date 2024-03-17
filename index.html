@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="bootstrap-5.3.3-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="header_styles.css">
+    <link rel="stylesheet" href="reg_form/reg_form.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>POST Form</title>
+</head>
+<body>
+
+<div id="header"></div>
+<br>
+<div id="reg_form_include"></div>
+
+<script>
+    // Загружаем шапку и контент при загрузке страницы
+    window.onload = function() {
+        loadHeader();
+        loadRegForm();
+        // executeRegFormScripts();
+    };
+
+    function loadHeader() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200){
+                document.getElementById("header").innerHTML = this.responseText;
+                setActiveLink();
+            }
+        };
+        xhttp.open("GET", "header.html", true);
+        xhttp.send();
+    }
+
+    function loadRegForm() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                document.getElementById("reg_form_include").innerHTML = this.responseText;
+                runRegFormScripts();
+            }
+        };
+        xhttp.open("GET", "reg_form/reg_form_include.html", true);
+        xhttp.send();
+    }
+
+    function setActiveLink() {
+        var path = window.location.pathname;
+        var links = document.querySelectorAll('#navbarNav .nav-link');
+        for (var i = 0; i < links.length; i++) {
+            var link = links[i];
+            if (link.getAttribute('href') === 'index.html') {
+                link.classList.add('active');
+            }
+        }
+    }
+
+    function runRegFormScripts() {
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+            // Если событие DOMContentLoaded уже было выполнено, то выполните ваш код сразу
+            console.log("DOMContentLoaded event has already been fired.");
+            executeRegFormScripts(); // Вызываем скрипты из файла reg_form.js
+        } else {
+            // Если событие DOMContentLoaded еще не выполнено, добавьте обработчик
+            console.log("DOMContentLoaded event hasn't been fired yet. Adding listener...");
+            document.addEventListener("DOMContentLoaded", function() {
+                executeRegFormScripts(); // Вызываем скрипты из файла reg_form.js
+            });
+        }
+    }
+
+    function executeRegFormScripts() {
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'reg_form/reg_form_include.js'; // Путь к вашему файлу reg_form.js
+        scriptElement.onload = function() {
+            // Ваши скрипты из файла reg_form.js были успешно загружены и выполнены
+            // Теперь вы можете вызывать функции и выполнять другие действия из этого файла
+            // Например:
+            // myFunctionFromRegFormJS();
+        };
+        document.body.appendChild(scriptElement);
+    }
+
+    // document.addEventListener("DOMContentLoaded", function() {
+    //     // Вызываем функцию после загрузки формы
+    //     formLoaded();
+    // });
+</script>
+<!--<script src="reg_form/reg_form.js"></script>-->
+</body>
+</html>

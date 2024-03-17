@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="form_reg">
+        <div class="profile_img">
+            <img src="https://html5book.ru/wp-content/uploads/2016/10/profile-image.png">
+            <h1>Страница<br>регистрации</h1>
+        </div>
+        <form method="post" action="reg_form/reg_form.php">
+            <div>
+                <label for="name_">Имя:</label>
+                <input type="text" id="name_" name="name" required pattern="[А-Яа-яЁё]+">
+            </div>
+            <div>
+                <label for="mname_">Отчество:</label>
+                <input type="text" id="mname_" name="mname" required>
+            </div>
+            <div>
+                <label for="sname_">Фамилия:</label>
+                <input type="text" id="sname_" name="sname" required>
+            </div>
+
+            <div>
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required value="+7">
+            </div>
+            <div>
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            </div>
+            <div>
+                <label for="section">Выберите секцию:</label>
+                <select id="section" name="section" required>
+                    <option value="Математика">Математика</option>
+                    <option value="Физика">Физика</option>
+                    <option value="Информатика">Информатика</option>
+                </select>
+            </div>
+            <div>
+                <label for="birthday">Дата рождения:</label>
+                <input type="date" id="birthday" name="birthday">
+            </div>
+
+            <div class="checkbox-container">
+                <label for="report">Выступление с докладом?</label>
+                <input type="checkbox" id="report" name="report">
+                <label id="report_yes_no_checkbox" for="report">НЕТ</label>
+            </div>
+
+
+            <div>
+                <label for="topic">Тема доклада:</label><br>
+                <textarea id="topic" name="topic" rows="4" cols="50" readonly disabled></textarea>
+            </div>
+
+            <div>
+                <button type="submit">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<script src="/reg_form/reg_form.js"></script>-->

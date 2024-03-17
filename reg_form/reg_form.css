@@ -1,0 +1,238 @@
+*{box-sizing:border-box}
+@import 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i&subset=cyrillic';
+body {
+    margin: 0;
+    background: #F7F7F7;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh; /* Минимальная высота контейнера, чтобы оставить возможность вертикальной прокрутки */
+    /*display: flex;*/
+    align-items: center; /* Центрирование по вертикали */
+}
+
+.container {
+    width: 100%; /* Ширина контейнера равна ширине body */
+    max-width: 600px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование по горизонтали */
+    padding: 0 20px; /* Добавляем внутренние отступы для красивого отображения */
+}
+
+.form_reg {
+    width: 550px;
+    background: #ffd500;
+    border-radius: 20px;
+}
+
+.form_reg *{transition: .1s linear}
+
+.profile_img {
+    width: 240px;
+    float: left;
+    text-align: center;
+    padding: 18px;
+}
+
+form {
+    background: white;
+    float: left;
+    width: calc(100% - 240px);
+    padding: 30px;
+    border-radius: 0 20px 20px 0;
+    color: #7b7b7b;
+}
+
+.form_reg:after, form div:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+form div {
+    margin-bottom: 15px;
+    position: relative;
+}
+h1 {
+    font-size: 24px;
+    font-weight: 400;
+    position: relative;
+    margin-top: 50px;
+}
+h1:after {
+    content: "\f138";
+    font-size: 40px;
+    font-family: FontAwesome;
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/********************** стилизация элементов формы **********************/
+label, span {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+    border-width: 0;
+    outline: none;
+    margin: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: #e6e6e6;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="tel"]:focus {
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,.2);
+}
+
+input[type="date"] {
+    border: 0;
+    outline: none;
+    background: #e6e6e6;
+    color: #7b7b7b;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+/* Стили для Firefox */
+input[type="date"]::-moz-placeholder {
+    color: #7b7b7b;
+}
+
+/* Стили для Chrome, Safari, Edge */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    font-size: 0;
+}
+
+/* Стили для Edge */
+input[type="date"]::-ms-clear {
+    display: none;
+}
+
+/* Стили для Edge и IE */
+input[type="date"]::-ms-reveal {
+    display: none;
+}
+
+
+.checkbox-container {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-container input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-container input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #7b7b7b;
+    border-radius: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.checkbox-container input[type="checkbox"] + label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border: 2px solid #7b7b7b;
+    border-radius: 3px;
+    margin-right: 5px;
+    cursor: pointer;
+    position: relative;
+    top: 50%;
+    transform: translateY(30%);
+}
+
+.checkbox-container input[type="checkbox"]:checked + label::before {
+    background-color: #ffd500;
+    border-color: #ffd500;
+}
+
+
+textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Учитываем padding и border внутри заданной ширины */
+    resize: none; /* Запрет на изменение размера */
+}
+
+textarea:disabled {
+    background-color: #f2f2f2; /* Цвет фона для отключенного состояния */
+    cursor: not-allowed; /* Изменение курсора */
+}
+
+textarea:read-only {
+    background-color: #f2f2f2; /* Цвет фона для только чтения */
+    cursor: default; /* Изменение курсора */
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+
+
+select {
+    width: 100%;
+    cursor: pointer;
+    padding: 10px 15px;
+    outline: 0;
+    border: 0;
+    background: #e6e6e6;
+    color: #7b7b7b;
+    -webkit-appearance: none; /*убираем галочку в webkit-браузерах*/
+    -moz-appearance: none; /*убираем галочку в Mozilla Firefox*/
+}
+select::-ms-expand {
+    display: none; /*убираем галочку в IE*/
+}
+.select-arrow {
+    position: absolute;
+    top: 38px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    pointer-events: none; /*активизируем показ списка при нажатии на стрелку*/
+    border-style: solid;
+    border-width: 8px 5px 0 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+button {
+    padding: 10px 0;
+    border-width: 0;
+    display: block;
+    width: 120px;
+    margin: 25px auto 0;
+    background: #ffd500;
+    color: black;
+    font-size: 14px;
+    outline: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s; /* Добавляем плавный переход для изменения цвета фона */
+}
+
+button:hover {
+    background: #ff9900; /* Изменяем цвет при наведении на кнопку */
+}
+
+button:active {
+    background: #ffd500; /* Возвращаем изначальный цвет при нажатии на кнопку */
+}

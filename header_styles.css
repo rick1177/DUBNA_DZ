@@ -1,0 +1,8 @@
+#custom-navbar {
+    background-color: #ffd500 !important; /* Светло-серый цвет фона */
+    color: #000; /* Черный цвет текста */
+}
+
+/*.navbar .navbar-nav .nav-link {*/
+/*    color: #000; !* Черный цвет ссылок *!*/
+/*}*/
