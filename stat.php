@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="reg_form/reg_form.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
     <title>POST Form</title>
+    <style>
+        body {
+            min-width: 600px;
+        }
+    </style>
 </head>
 <body>
 <div id="header"></div>
@@ -121,5 +126,6 @@ $conn->close();
         }
     </style>
 
+<script src="bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

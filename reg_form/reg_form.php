@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="../reg_form/reg_form.css">
     <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
     <title>Результаты</title>
+    <style>
+        body {
+            min-width: 600px;
+        }
+    </style>
 </head>
 <body>
     <div id="header"></div>
@@ -170,7 +175,7 @@
 
         // Выполняем запрос
         if ($conn->query($sql) === TRUE) {
-            echo "Запись успешно добавлена";
+            //echo "Запись успешно добавлена";
         } else {
             echo "Ошибка при добавлении записи: " . $conn->error;
         }
@@ -199,5 +204,6 @@
     }
     ?>
 
+    <script src="../bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
 </body>
 </html>
